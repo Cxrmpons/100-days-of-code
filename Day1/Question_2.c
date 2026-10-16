@@ -1,30 +1,37 @@
-//Q1: Write a program to input two numbers and display their sum.
+//Q2: Write a program to input two numbers and display their sum, difference, product, and quotient.
 
 /*
 Sample Test Cases:
 Input 1:
-3 4
+10 2
 Output 1:
-Sum = 7
+Sum=12, Diff=8, Product=20, Quotient=5
 
 Input 2:
--1 20
+7 3
 Output 2:
-Sum = 19
+Sum=10, Diff=4, Product=21, Quotient=2
 
 */
 
-//Write a program to input two numbers and display their sum
+        
 #include <stdio.h>
 int main() {
-    int num1, num2, sum;
-    
+    int num1, num2;
+    int sum, diff, product;
+    float quotient;
+
     printf("Enter two numbers: ");
     scanf("%d %d", &num1, &num2);
-    
+
     sum = num1 + num2;
-    
-    printf("Sum = %d\n", sum);
-    
-    return 0;
+    diff = num1 - num2;
+    product = num1 * num2;
+
+    if (num2 != 0) {
+        quotient = (float)num1 / num2;
+        printf("Sum=%d, Diff=%d, Product=%d, Quotient=%.2f\n", sum, diff, product, quotient);
+    } else {
+        printf("Sum=%d, Diff=%d, Product=%d, Quotient=undefined (division by zero)\n", sum, diff, product);
+    }
 }
