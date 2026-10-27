@@ -1,32 +1,47 @@
-//Q35: Write a program to print all factors of a given number.
+//Q43: Write a program to check if a number is a strong number.
 
 /*
 Sample Test Cases:
 Input 1:
-6
+145
 Output 1:
-1 2 3 6
+Strong number
 
 Input 2:
-10
+123
 Output 2:
-1 2 5 10
+Not strong number
 
 */
+
+//Write a program to check if a number is a strong number.
 #include <stdio.h>
-int main() {
-    int num;
+
+int factorial(int n){
+    if (n == 0)
+        return 1;
+    else
+        return n * factorial(n - 1);
+}
+
+int main(){
+    int num, originalNum, remainder, sum = 0;
 
     printf("Enter a number: ");
     scanf("%d", &num);
 
-    printf("Factors of %d are: ", num);
-    for (int i = 1; i <= num; i++) {
-        if (num % i == 0) {
-            printf("%d ", i);
-        }
+    originalNum = num;
+
+    while (num > 0) {
+        remainder = num % 10;
+        sum += factorial(remainder);
+        num /= 10;
     }
-    printf("\n");
+
+    if (sum == originalNum)
+        printf("Strong number\n");
+    else
+        printf("Not strong number\n");
 
     return 0;
 }

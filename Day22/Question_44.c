@@ -1,32 +1,36 @@
-//Q36: Write a program to find the HCF (GCD) of two numbers.
+//Q44: Write a program to find the sum of the series: 1 + 3/4 + 5/6 + 7/8 + … up to n terms.
 
 /*
 Sample Test Cases:
 Input 1:
-12 18
+3
 Output 1:
-6
+Approximate sum: 3.3
 
 Input 2:
-7 9
+5
 Output 2:
-1
+Approximate sum: 4.4
 
 */
+
+//Write a program to find the sum of the series: 1 + 3/4 + 5/6 + 7/8 + … up to n terms.
 #include <stdio.h>
-int main() {
-    int num1, num2, hcf;
 
-    printf("Enter two numbers: ");
-    scanf("%d %d", &num1, &num2);
+int main(){
+    int n;
+    float sum = 0;
 
-    for (int i = 1; i <= num1 && i <= num2; i++) {
-        if (num1 % i == 0 && num2 % i == 0) {
-            hcf = i;
-        }
+    printf("Enter the number of terms: ");
+    scanf("%d", &n);
+
+    for (int i = 1; i <= n; i++) {
+        float numerator = 2 * i - 1;
+        float denominator = 2 * i;
+        sum += numerator / denominator;
     }
 
-    printf("HCF of %d and %d is %d\n", num1, num2, hcf);
+    printf("Approximate sum: %.1f\n", sum);
 
     return 0;
 }
