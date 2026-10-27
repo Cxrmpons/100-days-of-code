@@ -1,32 +1,41 @@
-//Q35: Write a program to print all factors of a given number.
+//Q39: Write a program to find the product of odd digits of a number.
 
 /*
 Sample Test Cases:
 Input 1:
-6
+12345
 Output 1:
-1 2 3 6
+15 (1*3*5)
 
 Input 2:
-10
+2468
 Output 2:
-1 2 5 10
+1 (no odd digits, assume 1)
 
 */
+
+//Write a program to find the product of odd digits of a number.
 #include <stdio.h>
 int main() {
-    int num;
+    int number, product = 1, digit;
+    int hasOddDigit = 0; // Flag to check if there are any odd digits
 
     printf("Enter a number: ");
-    scanf("%d", &num);
+    scanf("%d", &number);
 
-    printf("Factors of %d are: ", num);
-    for (int i = 1; i <= num; i++) {
-        if (num % i == 0) {
-            printf("%d ", i);
+    while (number != 0) {
+        digit = number % 10;
+        if (digit % 2 != 0) { // Check if the digit is odd
+            product *= digit;
+            hasOddDigit = 1; // Set flag to true
         }
+        number /= 10;
     }
-    printf("\n");
 
+    if (!hasOddDigit) {
+        product = 1; // If no odd digits, set product to 1
+    }
+
+    printf("Product of odd digits: %d\n", product);
     return 0;
 }
